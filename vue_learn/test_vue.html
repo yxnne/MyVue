@@ -52,6 +52,25 @@
     });
   </script>
 
+  <div id="app4">
+    <ul>
+      <li v-for="todo in todos">{{todo.text}}</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    var app4 = new Vue({
+      el:'#app4',
+      data:{
+        todos:[
+          {text:'12345'},
+          {text:'abcdef'},
+          {text:'09876'}
+        ]
+      }
+    });
+  </script>
+
 
 </body>
 </html>
