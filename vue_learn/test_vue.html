@@ -39,6 +39,18 @@
   </script>
 
   <!-- v-if -->
+  <div id="app3">
+    <p v-if="seen">Visible now</p>
+  </div>
+
+  <script type="text/javascript">
+    var app3 = new Vue({
+      el:'#app3',
+      data:{
+        seen:false
+      }
+    });
+  </script>
 
 
 </body>
