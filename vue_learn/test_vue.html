@@ -71,6 +71,26 @@
     });
   </script>
 
+  <!-- v-on -->
+
+  <div id="app5">
+    <p>{{ msg }}</p>
+    <button v-on:click="reverseMsg">逆转消息</button>
+  </div>
+  
+  <script type="text/javascript">
+    var app5 = new Vue({
+      el:'#app5',
+      data:{
+        msg:'ABCDEF',
+      },
+      methods:{
+        reverseMsg:function(){
+          this.msg = this.msg.split('').reverse().join('')
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
