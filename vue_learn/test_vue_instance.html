@@ -5,8 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue instance</title>
+  <!-- vue import -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
+  <div id="info">
+    <p>
+      name is {{name}} and,
+      age is {{age}},
+      math_score is {{score.math}}
+    </p>
+  </div>
+
+  <script type="text/javascript">
+    var data = {
+      name:"y",
+      age:20,
+      score:{
+        math:90
+      }
+    };
+
+    var vm = new Vue({
+      el:'#info',
+      data:data,
+      // Life Cycle Hook Function
+      created: function () {
+        // `this` 指向 vm 实例
+        console.log('age is: ' + this.age)
+
+      },
+      //vue 这里不推荐使用箭头函数
+      mounted:() => {
+        // `this` 指向 vm 实例
+        console.log('age is: ' + this.age)
+      }
+
+    });
+
+
+  </script>
 
 </body>
 </html>
