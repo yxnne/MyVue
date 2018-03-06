@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- vue import -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Document</title>
+</head>
+<body>
+
+  <h5>Test Templete</h5>
+
+  <!-- 绑定原始html -->
+  <div id="p1">
+    <p >Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+  </div>
+
+  <script type="text/javascript">
+    var vm_p1 = new Vue({
+      el:"#p1",
+      data:{
+        rawHtml:'<span style="color:red">This is Red</span>'
+      }
+    });
+  </script>
+
+
+  <!-- 数据绑定：普通的绑定 -->
+  <div id="test-bind1">
+    number is now :{{isOk? nbr + 1 : nbr - 1}}
+
+  </div>
+  <script type="text/javascript">
+    var vm1 = new Vue({
+      el:"#test-bind1",
+      data:{
+        nbr:20,
+        isOk: false
+      }
+    });
+  </script>
+
+  <!-- 这样不行 -->
+  <div v-bind:id="t123">
+    If I can bind the id ,there are numbers here {{nbrs}}
+  </div>
+
+  <script type="text/javascript">
+    // 下面一句的结果是并没有得到t123 因为打印的是null
+    console.log('t123?',document.getElementById('t123'));
+
+    let vm2 = new Vue({
+      el:"t123",
+      data:{
+        nbrs:6666
+      }
+    });
+
+  </script>
+
+</body>
+</html>
