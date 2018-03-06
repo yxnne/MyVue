@@ -61,5 +61,63 @@
 
   </script>
 
+  <!-- 计算属性 -->
+
+  <div id="computed">
+    <p>The Original String is {{msg}}</p>
+    <p>The Reversed is :{{reverseMsg}}</p>
+
+  </div>
+
+  <script type="text/javascript">
+
+    let computedVm = new Vue({
+      el:"#computed",
+      data:{
+        msg:"654321"
+      },
+      computed:{
+        // 计算属性的getter函数
+        reverseMsg:function(){
+          return this.msg.split('').reverse().join('')
+        }
+      }
+    });
+
+  </script>
+
+  <!-- 计算属性的setter 和 getter -->
+  <div id="name">
+    <p>This Frist Name is :{{firstName}}</p>
+    <p>This Last Name is :{{lastName}}</p>
+  </div>
+  <script type="text/javascript">
+
+    let nameVm = new Vue({
+      el:"#name",
+      data:{
+        firstName:"F",
+        lastName:"L"
+      },
+      computed:{
+        fullName:{
+          get:function(){
+            return this.firstName + this.lastName
+          },
+          // 计算属性的setter函数其实是通过设置计算值来设置原始属性
+          set:function(name){
+            var names = name.split(" ");
+            this.firstName = names[0];
+            this.lastName = names[1];
+          }
+        }
+      }
+    });
+  </script>
+
+
+
+
+
 </body>
 </html>
